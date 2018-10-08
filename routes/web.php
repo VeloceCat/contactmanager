@@ -11,10 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index');
+Route::get('/add','ContactController@add');
+Route::post('/add','ContactController@store');
+Route::get('/edit/{id}','ContactController@edit');
+Route::post('/edit/{id}','ContactController@update');
+Route::get('/delete/{id}','ContactController@delete');
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
